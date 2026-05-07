@@ -89,7 +89,25 @@ fn test_closed_hand() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
+}
+
+#[test]
+fn test_cannot_win() {
+    // 123m245779p13555z
+    let hand: [i8; 34] = [
+        1, 1, 1, 0, 0, 0, 0, 0, 0, // manzu
+        0, 1, 0, 1, 1, 0, 2, 0, 1, // pinzu
+        0, 0, 0, 0, 0, 0, 0, 0, 0, // souzu
+        1, 0, 1, 0, 3, 0, 0, // jihai
+    ];
+    let mut tile_limits = [0i8; 35];
+
+    tile_limits[..hand.len()].copy_from_slice(&hand);
+
+    let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
+
+    assert!(matches!(shanten, None));
 }
 
 #[test]
@@ -104,7 +122,7 @@ fn test_insufficient_blocks_4433() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 1);
+    assert!(matches!(shanten, Some(1)));
 }
 
 #[test]
@@ -119,7 +137,7 @@ fn test_insufficient_blocks_4442i() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -134,7 +152,7 @@ fn test_insufficient_blocks_4442ii() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -149,7 +167,7 @@ fn test_insufficient_blocks_4333() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 1);
+    assert!(matches!(shanten, Some(1)));
 }
 
 #[test]
@@ -164,7 +182,7 @@ fn test_insufficient_blocks_4432i() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -179,7 +197,7 @@ fn test_insufficient_blocks_4432ii() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -194,7 +212,7 @@ fn test_insufficient_blocks_4441() {
     let tile_limits = make_tile_limits(false);
     let shanten = calc_shanten(&hand, &tile_limits, 4, true).unwrap();
 
-    assert!(shanten == 3);
+    assert!(matches!(shanten, Some(3)));
 }
 
 #[test]
@@ -212,7 +230,7 @@ fn test_open_hand_1() {
 
     let shanten = calc_shanten(&hand, &tile_limits, 3, true).unwrap();
 
-    assert!(shanten == 1);
+    assert!(matches!(shanten, Some(1)));
 }
 
 #[test]
@@ -232,7 +250,7 @@ fn test_open_hand_2() {
 
     let shanten = calc_shanten(&hand, &tile_limits, 1, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -252,7 +270,7 @@ fn test_open_hand_3() {
 
     let shanten = calc_shanten(&hand, &tile_limits, 1, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }
 
 #[test]
@@ -272,5 +290,5 @@ fn test_open_hand_4() {
 
     let shanten = calc_shanten(&hand, &tile_limits, 1, true).unwrap();
 
-    assert!(shanten == 2);
+    assert!(matches!(shanten, Some(2)));
 }

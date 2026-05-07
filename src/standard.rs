@@ -65,7 +65,7 @@ const DELTAS: [&[Delta]; 34] = [
 pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35], m: usize) -> i8 {
     let mut table = [[[[[MAX_SHT; 5]; 2]; 5]; 5]; 35];
 
-    table[0][0][0][0][0] = 0;
+    table[0][0][0][0][0] = -1;
 
     for n in 0..NUM_TIDS {
         for a in 0..=(tile_limits[n] as usize) {
@@ -100,5 +100,5 @@ pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35], m: usize) -> i8 {
         }
     }
 
-    table[NUM_TIDS][0][0][1][m] - 1
+    table[NUM_TIDS][0][0][1][m]
 }

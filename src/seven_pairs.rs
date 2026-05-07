@@ -3,7 +3,7 @@ use crate::common::{MAX_SHT, NUM_TIDS, chmin, get_next_value};
 pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35]) -> i8 {
     let mut table = [[MAX_SHT; 8]; 35];
 
-    table[0][0] = 0;
+    table[0][0] = -1;
 
     for n in 0..NUM_TIDS {
         for p in 0..=7 {
@@ -25,5 +25,5 @@ pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35]) -> i8 {
         }
     }
 
-    table[34][7] - 1
+    table[34][7]
 }

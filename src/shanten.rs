@@ -1,4 +1,4 @@
-use crate::common::{NUM_TIDS, chmin};
+use crate::common::{MAX_SHT, NUM_TIDS, chmin};
 
 #[derive(Debug, thiserror::Error)]
 pub enum ShantenError {
@@ -15,7 +15,7 @@ pub fn calc_shanten(
     tile_limits: &[i8; 35],
     m: usize,
     check_hand: bool,
-) -> Result<i8, ShantenError> {
+) -> Result<Option<i8>, ShantenError> {
     if check_hand {
         for i in 0..NUM_TIDS {
             if hand[i] < 0 || hand[i] > 4 {
@@ -39,7 +39,7 @@ pub fn calc_shanten(
         chmin(&mut ret, super::thirteen_orphans::calc_shanten(hand, tile_limits));
     }
 
-    Ok(ret)
+    Ok(if ret == MAX_SHT { None } else { Some(ret) })
 }
 
 pub fn make_tile_limits(three_player: bool) -> [i8; 35] {

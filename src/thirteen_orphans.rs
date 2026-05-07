@@ -5,7 +5,7 @@ const NON_SIMPLES: [usize; 13] = [0, 8, 9, 17, 18, 26, 27, 28, 29, 30, 31, 32, 3
 pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35]) -> i8 {
     let mut table = [[MAX_SHT; 2]; 14];
 
-    table[0][0] = 0;
+    table[0][0] = -1;
 
     for n in 0..13 {
         for p in 0..=1 {
@@ -27,5 +27,5 @@ pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35]) -> i8 {
         }
     }
 
-    table[13][1] - 1
+    table[13][1]
 }
