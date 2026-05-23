@@ -26,40 +26,40 @@ const DELTAS_WITHOUT_SEQ: [Delta; 3] = [
 ];
 
 const DELTAS: [&[Delta]; 34] = [
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITH_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
-    &DELTAS_WITHOUT_SEQ,
+    &DELTAS_WITH_SEQ,    // 1m
+    &DELTAS_WITH_SEQ,    // 2m
+    &DELTAS_WITH_SEQ,    // 3m
+    &DELTAS_WITH_SEQ,    // 4m
+    &DELTAS_WITH_SEQ,    // 5m
+    &DELTAS_WITH_SEQ,    // 6m
+    &DELTAS_WITH_SEQ,    // 7m
+    &DELTAS_WITHOUT_SEQ, // 8m
+    &DELTAS_WITHOUT_SEQ, // 9m
+    &DELTAS_WITH_SEQ,    // 1p
+    &DELTAS_WITH_SEQ,    // 2p
+    &DELTAS_WITH_SEQ,    // 3p
+    &DELTAS_WITH_SEQ,    // 4p
+    &DELTAS_WITH_SEQ,    // 5p
+    &DELTAS_WITH_SEQ,    // 6p
+    &DELTAS_WITH_SEQ,    // 7p
+    &DELTAS_WITHOUT_SEQ, // 8p
+    &DELTAS_WITHOUT_SEQ, // 9p
+    &DELTAS_WITH_SEQ,    // 1s
+    &DELTAS_WITH_SEQ,    // 2s
+    &DELTAS_WITH_SEQ,    // 3s
+    &DELTAS_WITH_SEQ,    // 4s
+    &DELTAS_WITH_SEQ,    // 5s
+    &DELTAS_WITH_SEQ,    // 6s
+    &DELTAS_WITH_SEQ,    // 7s
+    &DELTAS_WITHOUT_SEQ, // 8s
+    &DELTAS_WITHOUT_SEQ, // 9s
+    &DELTAS_WITHOUT_SEQ, // 1z
+    &DELTAS_WITHOUT_SEQ, // 2z
+    &DELTAS_WITHOUT_SEQ, // 3z
+    &DELTAS_WITHOUT_SEQ, // 4z
+    &DELTAS_WITHOUT_SEQ, // 5z
+    &DELTAS_WITHOUT_SEQ, // 6z
+    &DELTAS_WITHOUT_SEQ, // 7z
 ];
 
 pub fn calc_shanten(hand: &[i8; 34], tile_limits: &[i8; 35], m: usize) -> i8 {
