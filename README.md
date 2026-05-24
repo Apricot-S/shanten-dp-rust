@@ -1,5 +1,9 @@
 # Shanten DP Rust
 
+[![Crate](https://img.shields.io/crates/v/shanten-dp.svg)](https://crates.io/crates/shanten-dp)
+[![Minimum Supported Rust Version](https://img.shields.io/crates/msrv/shanten-dp)](https://crates.io/crates/shanten-dp)
+[![API](https://docs.rs/shanten-dp/badge.svg)](https://docs.rs/shanten-dp)
+
 Rust implementation of the Shanten calculation algorithm using dynamic programming.
 
 ## Overview
